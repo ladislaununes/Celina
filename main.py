@@ -16,7 +16,7 @@ with sr.Microphone() as source:
             procurar = comando.replace('procure por', '')
             procurar = comando.replace('pesquise por', '')
             wikipedia.set_lang('pt')
-            resultado = wikipedia.summary(procurar, sentences=2)
+            resultado = wikipedia.search(procurar, sentences=2)
             print(resultado)
             maquina.say(resultado)
             maquina.runAndWait()
