@@ -29,17 +29,19 @@ def capturar_comando():
 
 # Função para executar comandos
 def executar_comando(comando):
-    # Saber as Horas
+    # SABER AS HORAS
     if "diga as horas" in comando or "que horas são" in comando:
         agora = datetime.datetime.now().strftime("%H:%M")
         resposta = f"Agora são {agora}."
         print(resposta)
         falar(resposta)
-    # Saber o dia da Semana
+
+    # SABER O DIA DA SEMANA
     elif "que dia é hoje" in comando:
-        # Dia
+        # DIA
         dia = datetime.datetime.now().day
-        # Mês
+
+        # MÊS
         num_mes = datetime.datetime.now().month
         if (num_mes == 1):
             mes = "Janeiro"
@@ -65,26 +67,31 @@ def executar_comando(comando):
             mes = "Novembro"
         else:
             mes = "Dezembro"
-        # Ano
+
+        # ANO
         ano = datetime.datetime.now().year
         
         resposta = f"Hoje são {dia} de {mes} de {ano}"
         print(resposta)
         falar(resposta)
-    # Pesquisar na Web
+
+    # PESQUISAR NA WEB
     elif "pesquisar" in comando:
         falar("O que você deseja pesquisar?")
         termo = capturar_comando()
         url = f"https://www.google.com/search?q={termo}"
         webbrowser.open(url)
-    # Apresentação da Assistente
+
+    # APRESENTAÇÃO DA ASSISTENTE
     elif "se apresente assistente" in comando or "se apresenta assistente" in comando:
         falar("Eu sou a Celina, o assistente virtual criado por Ladislau Nunes. É um prazer ajudar vocês.")
-    # Abrir o Google Chrome
+
+    # ABRIR O GOOGLE CHROME
     elif "abra o google" in comando:
         falar("Abrindo o Google Chrome")
         os.system('"C:/Program Files/Google/Chrome/Application/chrome.exe"')
-    # Encerrar o Programa
+
+    # ENCERRAR O ASSISTENTE
     elif "encerrar" in comando or "fechar programa" in comando:
         falar("Encerrando o assistente de voz. Até a próxima")
         exit()
